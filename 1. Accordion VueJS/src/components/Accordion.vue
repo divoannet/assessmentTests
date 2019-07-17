@@ -1,6 +1,8 @@
 <template>
-  <div class="hello">
-    Ololo
+  <div class="vue-accordion">
+    <accordion-item
+      
+    />
   </div>
 </template>
 
