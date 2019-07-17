@@ -5,9 +5,7 @@
         Accordion demo
       </h1>
       <Accordion
-        :data="data"
-        :title="data.title"
-        :content="data.getContent"
+        :items="items"
       />
     </div>
   </div>
@@ -16,16 +14,16 @@
 <script>
 import Accordion from './components/Accordion.vue';
 
-const data = [
-  {
-    title: ''
-  }
-];
-
 export default {
   name: 'app',
   components: {
     Accordion,
+  },
+  data: () => {
+    console.log('lol(');
+    return {
+      items: ['123', '345', '456'],
+    };
   },
 };
 </script>

@@ -1,19 +1,21 @@
 <template>
-  <div class="vue-accordion">
-    <accordion-item
-      
-    />
-  </div>
+  <ul class="vue-accordion">
+    <Tab/>
+  </ul>
 </template>
 
 <script>
+import Tab from './Tab.vue';
+
 export default {
   name: 'Accordion',
   props: {
-    data: {
-      type: Object,
-      required: true
-    }
+    items: {
+      type: Array,
+    },
+    components: {
+      Tab,
+    },
   },
 };
 </script>
