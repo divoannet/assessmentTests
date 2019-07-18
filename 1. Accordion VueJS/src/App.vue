@@ -54,15 +54,15 @@ export default {
       const { documents } = response.data;
       return Object
         .keys(documents)
-        .map((key) => ({
+        .map(key => ({
           id: key,
           title: documents[key].title,
           url: documents[key].url,
           content: '',
         }));
     },
-    getContent({id}) {
-      const item = this.items.find((item) => item.id === id);
+    getContent({ id }) {
+      const item = this.items.find(tab => tab.id === id);
       const { url } = item;
       axios
         .get(`https://meduza.io/api/v3/${url}`)

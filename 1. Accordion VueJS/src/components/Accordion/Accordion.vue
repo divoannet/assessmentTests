@@ -1,7 +1,7 @@
 <template>
   <ul class="accordion">
     <Tab
-      v-for="(item,index) in items"
+      v-for="item in items"
       :item="item"
       :key="item.id"
       :title="item.title"
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     onClickHandler(item) {
-      if ( this.activeTab === item.id ) {
+      if (this.activeTab === item.id) {
         this.activeTab = null;
         this.loading = false;
         return;

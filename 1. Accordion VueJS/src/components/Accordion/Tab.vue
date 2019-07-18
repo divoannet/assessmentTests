@@ -31,11 +31,6 @@ export default {
       type: Boolean,
     },
   },
-  data() {
-    return {
-      localTitle: this.item[this.title],
-    };
-  },
 };
 </script>
 
