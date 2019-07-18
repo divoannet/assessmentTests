@@ -1,9 +1,12 @@
 <template>
-  <ul class="vue-accordion">
-    <Tab/>
+  <ul>
+    <Tab
+      v-for="(item,index) in items"
+      :item="item"
+      :key="index"
+    ></Tab>
   </ul>
 </template>
-
 <script>
 import Tab from './Tab.vue';
 
@@ -13,13 +16,13 @@ export default {
     items: {
       type: Array,
     },
-    components: {
-      Tab,
-    },
+  },
+  components: {
+    Tab,
   },
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 
 </style>
