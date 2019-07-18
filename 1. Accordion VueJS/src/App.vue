@@ -4,14 +4,26 @@
       <h1>
         Accordion demo
       </h1>
-      <Accordion
-        :items="items"
-      />
+      <div
+        v-if="loading"
+      >
+        ...loading
+      </div>
+      <div
+        v-if="!loading"
+      >
+        <Accordion
+          :items="items"
+          :title="'title'"
+          @get-content="getContent"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import { Accordion } from './components/Accordion';
 
 export default {
@@ -19,11 +31,45 @@ export default {
   components: {
     Accordion,
   },
-  data: () => {
-    console.log('lol(');
-    return {
-      items: ['123', '345', '456'],
-    };
+  data: () => ({
+    loading: true,
+    items: [],
+  }),
+  created() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      axios
+        .get('https://meduza.io/api/v3/search?chrono=news&locale=ru&page=0&per_page=3')
+        .then((response) => {
+          this.loading = false;
+          this.items = this.parseItemsFromResponse(response);
+        })
+        .catch(() => {
+          this.loading = false;
+        });
+    },
+    parseItemsFromResponse(response) {
+      const { documents } = response.data;
+      return Object
+        .keys(documents)
+        .map((key) => ({
+          id: key,
+          title: documents[key].title,
+          url: documents[key].url,
+          content: '',
+        }));
+    },
+    getContent({id}) {
+      const item = this.items.find((item) => item.id === id);
+      const { url } = item;
+      axios
+        .get(`https://meduza.io/api/v3/${url}`)
+        .then(({ data }) => {
+          this.$set(item, 'content', data.root.content.body);
+        });
+    },
   },
 };
 </script>
