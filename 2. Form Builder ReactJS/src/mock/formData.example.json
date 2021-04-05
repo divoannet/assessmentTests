@@ -1,0 +1,30 @@
+{
+  "items": [{
+    "label": "Number field",
+    "type": "number"
+  },{
+    "label": "Text field",
+    "type": "text"
+  },{
+    "label": "Multiline text",
+    "type": "textarea"
+  },{
+    "label": "Checkbox",
+    "type": "checkbox"
+  },{
+    "label": "Date",
+    "type": "date"
+  },{
+    "label": "Radio",
+    "type": "radio"
+  }],
+  "title": "Form Title",
+  "buttons": [
+    {
+      "label": "Send"
+    },
+    {
+      "label": "Cancel"
+    }
+  ]
+}

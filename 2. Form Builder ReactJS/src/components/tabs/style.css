@@ -1,0 +1,36 @@
+.tabSwitcher {
+    display: flex;
+    margin: 0 0 -1px;
+    padding: 0;
+
+    list-style: none;
+}
+
+.tabLabel {
+    padding: 4px 8px;
+
+    background-color: #eee;
+    border-width: 1px;
+    border-style: solid;
+
+    cursor: pointer;
+}
+
+.tabLabel:hover {
+    background-color: #dedede;
+}
+
+.tabLabel + .tabLabel {
+    margin-left: -1px;
+}
+
+.tabLabel.active {
+    background-color: #fff;
+    border-bottom-width: 0;
+}
+
+.tabContent {
+    padding: 16px;
+
+    border: solid 1px;
+}

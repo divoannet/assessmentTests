@@ -1,0 +1,25 @@
+.inputForm {
+    min-width: 400px;
+    height: 200px;
+}
+
+.warning {
+    color: rgb(209, 89, 89);
+}
+
+.outputItem + .outputItem {
+    margin-top: 12px;
+}
+
+.formLabel {
+    display: inline-block;
+    width: 200px;
+}
+
+.formControls {
+    margin-top: 20px;
+}
+
+.formControls button + button {
+    margin-left: 12px;
+}
